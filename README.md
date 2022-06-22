@@ -1,0 +1,2 @@
+# .github
+Common Organization Configurations
