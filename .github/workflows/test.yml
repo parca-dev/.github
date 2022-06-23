@@ -1,0 +1,30 @@
+name: test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  LOG_LEVEL: debug
+
+jobs:
+  validate-renovate-config:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    strategy:
+      matrix:
+        file:
+          - default.json
+          - renovate-config.json
+    env:
+      RENOVATE_CONFIG_FILE: ${{ matrix.file }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
+
+      - name: Validate Renovate Config
+        run: npx -p renovate renovate-config-validator
