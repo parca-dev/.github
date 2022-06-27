@@ -107,7 +107,7 @@
     },
     {
       "description": "Update Golang in go.mod file",
-      "fileMatch": ["(^|/)\\go.mod$"],
+      "fileMatch": ["(^|/)go.mod$"],
       "matchStrings": ["\\sgo (?<currentValue>.+?)\\s"],
       "depNameTemplate": "golang",
       "datasourceTemplate": "docker"
