@@ -30,7 +30,7 @@
     },
     {
       "description": "One week stability period for Go, npm, and Rust packages",
-      "matchDatasources": ["go", "npm", "rust"],
+      "matchDatasources": ["go", "npm", "crate"],
       "stabilityDays": 7
     },
     {
@@ -46,12 +46,16 @@
       "commitMessagePrefix": "{{{semanticPrefix}}} {{{manager}}}"
     },
     {
-      "description": "Group golang docker tags and rename to Golang",
-      "matchDatasources": ["docker"],
-      "matchPackageNames": ["golang"],
-      "matchPackagePatterns": ["/golang$"],
-      "commitMessageTopic": "Golang",
-      "groupName": "golang"
+      "description": "Group golang updates and rename to Go",
+      "matchDatasources": ["docker", "golang-version"],
+      "matchPackageNames": ["go", "golang"],
+      "commitMessageTopic": "Go",
+      "groupName": "go"
+    },
+    {
+      "description": "Customize rust updates commit message",
+      "matchPackageNames": ["rust"],
+      "commitMessageTopic": "Rust"
     },
     {
       "description": "Group packages from Kubernetes together",
@@ -74,7 +78,7 @@
       "semanticCommitType": "build"
     },
     {
-      "matchPackageNames": ["golang", "node", "rust"],
+      "matchPackageNames": ["go", "node", "rust"],
       "matchUpdateTypes": ["patch", "minor", "major"],
       "semanticCommitType": "build"
     },
@@ -106,18 +110,11 @@
       ]
     },
     {
-      "description": "Update Golang in go.mod file",
-      "fileMatch": ["(^|/)go.mod$"],
-      "matchStrings": ["\\sgo (?<currentValue>.+?)\\s"],
-      "depNameTemplate": "golang",
-      "datasourceTemplate": "docker"
-    },
-    {
       "description": "Update Golang in .go-version file",
       "fileMatch": ["(^|/)\\.go-version$"],
       "matchStrings": ["^\\s*(?<currentValue>.+?)\\s*$"],
-      "depNameTemplate": "golang",
-      "datasourceTemplate": "docker"
+      "depNameTemplate": "go",
+      "datasourceTemplate": "golang-version"
     },
     {
       "description": "Update Rust stable version in rust-toolchain.toml",
