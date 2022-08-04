@@ -30,7 +30,7 @@
     },
     {
       "description": "One week stability period for Go, npm, and Rust packages",
-      "matchDatasources": ["go", "npm", "rust"],
+      "matchDatasources": ["go", "npm", "crate"],
       "stabilityDays": 7
     },
     {
@@ -38,6 +38,12 @@
       "matchDatasources": ["go"],
       "matchUpdateTypes": ["digest"],
       "extends": ["schedule:weekly"]
+    },
+    {
+      "description": "Opt-out minimum Go version updates: https://github.com/renovatebot/renovate/issues/16715",
+      "matchManagers": ["gomod"],
+      "matchDepTypes": ["golang"],
+      "enabled": false
     },
     {
       "description": "Prefix lockFileMaintenance branches",
@@ -52,6 +58,11 @@
       "matchPackagePatterns": ["/golang$"],
       "commitMessageTopic": "Golang",
       "groupName": "golang"
+    },
+    {
+      "description": "Customize rust updates commit message",
+      "matchPackageNames": ["rust"],
+      "commitMessageTopic": "Rust"
     },
     {
       "description": "Group packages from Kubernetes together",
@@ -104,13 +115,6 @@
       "matchStrings": [
         "# renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: (?:packageName)=(?<packageName>.+?))?(?: versioning=(?<versioning>.+?))?\\s[A-Z_]+?_VERSION=('|\")?(?<currentValue>.+?)('|\")?\\s"
       ]
-    },
-    {
-      "description": "Update Golang in go.mod file",
-      "fileMatch": ["(^|/)go.mod$"],
-      "matchStrings": ["\\sgo (?<currentValue>.+?)\\s"],
-      "depNameTemplate": "golang",
-      "datasourceTemplate": "docker"
     },
     {
       "description": "Update Golang in .go-version file",
