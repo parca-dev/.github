@@ -5,6 +5,7 @@
     "config:base",
     ":automergeDigest",
     ":automergeMinor",
+    ":enablePreCommit",
     ":maintainLockFilesWeekly",
     ":rebaseStalePrs",
     ":semanticCommits",
@@ -13,7 +14,7 @@
     "helpers:pinGitHubActionDigests",
     "regexManagers:dockerfileVersions"
   ],
-  "reviewers": ["team:server-maintainers"],
+  "reviewersFromCodeOwners": true,
   "internalChecksFilter": "strict",
   "platformAutomerge": true,
   "golang": {
@@ -34,6 +35,11 @@
       "stabilityDays": 7
     },
     {
+      "description": "One week stability period for pre-commit packages",
+      "matchManagers": ["pre-commit"],
+      "stabilityDays": 7
+    },
+    {
       "description": "Update Go module digests weekly as they tend to update too often",
       "matchDatasources": ["go"],
       "matchUpdateTypes": ["digest"],
@@ -48,8 +54,8 @@
     {
       "description": "Prefix lockFileMaintenance branches",
       "matchUpdateTypes": ["lockFileMaintenance"],
-      "additionalBranchPrefix": "{{{manager}}}-",
-      "commitMessagePrefix": "{{{semanticPrefix}}} {{{manager}}}"
+      "additionalBranchPrefix": "{{manager}}-",
+      "commitMessagePrefix": "{{semanticPrefix}} {{manager}}"
     },
     {
       "description": "Group golang docker tags and rename to Golang",
@@ -69,6 +75,16 @@
       "matchSourceUrlPrefixes": ["https://github.com/kubernetes/"],
       "matchUpdateTypes": ["patch", "minor", "major"],
       "groupName": "kubernetes"
+    },
+    {
+      "description": "Group golangci-lint packages",
+      "matchSourceUrls": ["https://github.com/golangci/golangci-lint"],
+      "groupName": "golangci-lint"
+    },
+    {
+      "description": "Group go-jsonnet packages",
+      "matchSourceUrls": ["https://github.com/google/go-jsonnet"],
+      "groupName": "go-jsonnet"
     },
     {
       "description": "Exclude retracted Kubernetes client versions: https://github.com/renovatebot/renovate/issues/13012",
