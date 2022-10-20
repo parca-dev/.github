@@ -115,21 +115,21 @@
       "description": "Update _VERSION variables in GitHub workflows",
       "fileMatch": ["^\\.github\\/workflows\\/[^/]+\\.ya?ml$"],
       "matchStrings": [
-        "# renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: (?:packageName)=(?<packageName>.+?))?(?: versioning=(?<versioning>.+?))?\\s*[A-Z_]+?_VERSION: ('|\")?(?<currentValue>.+?)('|\")?\\s"
+        "# renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: (?:packageName)=(?<packageName>.+?))?(?: versioning=(?<versioning>.+?))?(?: extractVersion=(?<extractVersion>.+?))?\\s*[A-Z_]+?_VERSION: ('|\")?(?<currentValue>.+?)('|\")?\\s"
       ]
     },
     {
       "description": "Update _VERSION variables in Makefiles",
       "fileMatch": ["(^|/)Makefile$"],
       "matchStrings": [
-        "# renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: (?:packageName)=(?<packageName>.+?))?(?: versioning=(?<versioning>.+?))?\\s[A-Z_]+?_VERSION .?= (?<currentValue>.+?)\\s"
+        "# renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: (?:packageName)=(?<packageName>.+?))?(?: versioning=(?<versioning>.+?))?(?: extractVersion=(?<extractVersion>.+?))?\\s[A-Z_]+?_VERSION .?= (?<currentValue>.+?)\\s"
       ]
     },
     {
       "description": "Update _VERSION variables in shell scripts",
       "fileMatch": ["\\.sh$"],
       "matchStrings": [
-        "# renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: (?:packageName)=(?<packageName>.+?))?(?: versioning=(?<versioning>.+?))?\\s[A-Z_]+?_VERSION=('|\")?(?<currentValue>.+?)('|\")?\\s"
+        "# renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: (?:packageName)=(?<packageName>.+?))?(?: versioning=(?<versioning>.+?))?(?: extractVersion=(?<extractVersion>.+?))?\\s[A-Z_]+?_VERSION=('|\")?(?<currentValue>.+?)('|\")?\\s"
       ]
     },
     {
