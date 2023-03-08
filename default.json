@@ -90,7 +90,7 @@
     {
       "description": "Exclude retracted Kubernetes client versions: https://github.com/renovatebot/renovate/issues/13012",
       "matchPackageNames": ["k8s.io/client-go"],
-      "allowedVersions": "!/1\\.(4\\.0|5\\.0|5\\.1|5\\.2)$/"
+      "allowedVersions": "<1"
     },
     {
       "description": "Exclude retracted Prometheus versions: https://github.com/renovatebot/renovate/issues/13012",
