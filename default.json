@@ -17,12 +17,10 @@
   "reviewersFromCodeOwners": true,
   "internalChecksFilter": "strict",
   "platformAutomerge": true,
-  "golang": {
-    "postUpdateOptions": [
-      "gomodTidy",
-      "gomodUpdateImportPaths"
-    ]
-  },
+  "postUpdateOptions": [
+    "gomodTidy",
+    "gomodUpdateImportPaths"
+  ],
   "packageRules": [
     {
       "description": "Require dashboard approval for major updates",
