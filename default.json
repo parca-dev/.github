@@ -72,7 +72,10 @@
       "description": "Group packages from Kubernetes together",
       "matchSourceUrlPrefixes": ["https://github.com/kubernetes/"],
       "matchUpdateTypes": ["patch", "minor", "major"],
-      "excludePackagePatterns": ["minikube"],
+      "excludePackagePatterns": [
+        "ingress-nginx",
+        "minikube"
+      ],
       "groupName": "kubernetes"
     },
     {
