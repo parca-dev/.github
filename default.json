@@ -65,6 +65,12 @@
       "groupName": "golang"
     },
     {
+      "description": "Update podman container image digest weekly (rebuilt nightly)",
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["quay.io/containers/podman"],
+      "extends": ["schedule:weekly"]
+    },
+    {
       "description": "Customize rust updates commit message",
       "matchPackageNames": ["rust"],
       "commitMessageTopic": "Rust"
