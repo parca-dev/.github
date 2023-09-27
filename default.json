@@ -113,7 +113,7 @@
       "semanticCommitType": "build"
     }
   ],
-  "regexManagers": [
+  "customManagers": [
     {
       "description": "Update _VERSION variables in GitHub workflows",
       "customType": "regex",
