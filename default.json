@@ -51,6 +51,12 @@
       "pinDigests": false
     },
     {
+      "description": "Disable updates for build.build/gen go modules: https://github.com/renovatebot/renovate/discussions/24639",
+      "matchDatasources": ["go"],
+      "matchPackagePrefixes": ["build.build/gen/"],
+      "enabled": false
+    },
+    {
       "description": "Prefix lockFileMaintenance branches",
       "matchUpdateTypes": ["lockFileMaintenance"],
       "additionalBranchPrefix": "{{manager}}-",
