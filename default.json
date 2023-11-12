@@ -10,7 +10,8 @@
     ":rebaseStalePrs",
     ":semanticCommits",
     ":semanticCommitScope(deps)",
-    "regexManagers:dockerfileVersions"
+    "regexManagers:dockerfileVersions",
+    "regexManagers:githubActionsVersions"
   ],
   "reviewersFromCodeOwners": true,
   "internalChecksFilter": "strict",
@@ -121,14 +122,6 @@
     }
   ],
   "customManagers": [
-    {
-      "description": "Update _VERSION variables in GitHub workflows",
-      "customType": "regex",
-      "fileMatch": ["^\\.github\\/workflows\\/[^/]+\\.ya?ml$"],
-      "matchStrings": [
-        "# renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: (?:packageName)=(?<packageName>.+?))?(?: versioning=(?<versioning>.+?))?(?: extractVersion=(?<extractVersion>.+?))?\\s*[A-Z_]+?_VERSION: ('|\")?(?<currentValue>.+?)('|\")?\\s"
-      ]
-    },
     {
       "description": "Update _VERSION variables in Makefiles",
       "customType": "regex",
