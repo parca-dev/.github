@@ -69,8 +69,7 @@
       "description": "Disable pinning digest for podman container image (rebuilds nightly and keeps latest manifest only)",
       "matchDatasources": ["docker"],
       "matchPackageNames": ["quay.io/containers/podman"],
-      "matchUpdateTypes": ["pinDigest"],
-      "enabled": false
+      "pinDigests": false
     },
     {
       "description": "Customize rust updates commit message",
