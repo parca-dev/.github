@@ -10,6 +10,7 @@
     ":rebaseStalePrs",
     ":semanticCommits",
     ":semanticCommitScope(deps)",
+    "helpers:pinGitHubActionDigestsToSemver",
     "regexManagers:dockerfileVersions",
     "regexManagers:githubActionsVersions"
   ],
