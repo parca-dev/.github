@@ -11,8 +11,8 @@
     ":semanticCommits",
     ":semanticCommitScope(deps)",
     "helpers:pinGitHubActionDigestsToSemver",
-    "regexManagers:dockerfileVersions",
-    "regexManagers:githubActionsVersions"
+    "customManagers:dockerfileVersions",
+    "customManagers:githubActionsVersions"
   ],
   "reviewersFromCodeOwners": true,
   "internalChecksFilter": "strict",
