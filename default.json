@@ -61,8 +61,7 @@
     {
       "description": "Group golang docker tags and rename to Golang",
       "matchDatasources": ["docker"],
-      "matchPackageNames": ["golang"],
-      "matchPackagePatterns": ["/golang$"],
+      "matchPackageNames": ["/(?:^|/)golang$/"],
       "commitMessageTopic": "Golang",
       "groupName": "golang"
     },
@@ -79,12 +78,9 @@
     },
     {
       "description": "Group packages from Kubernetes together",
-      "matchSourceUrlPrefixes": ["https://github.com/kubernetes/"],
+      "matchSourceUrls": ["https://github.com/kubernetes/{/,}**"],
       "matchUpdateTypes": ["patch", "minor", "major"],
-      "excludePackagePatterns": [
-        "ingress-nginx",
-        "minikube"
-      ],
+      "matchPackageNames": ["!/ingress-nginx/", "!/minikube/"],
       "groupName": "kubernetes"
     },
     {
