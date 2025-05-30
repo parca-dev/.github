@@ -78,7 +78,7 @@
     },
     {
       "description": "Group packages from Kubernetes together",
-      "matchSourceUrls": ["https://github.com/kubernetes/{/,}**"],
+      "matchSourceUrls": ["https://github.com/kubernetes/**"],
       "matchUpdateTypes": ["patch", "minor", "major"],
       "matchPackageNames": ["!/ingress-nginx/", "!/minikube/"],
       "groupName": "kubernetes"
@@ -112,16 +112,13 @@
       "matchUpdateTypes": ["patch", "minor", "major"],
       "semanticCommitType": "build"
     },
-    {
-      "matchFileNames": ["Dockerfile"],
-      "semanticCommitType": "build"
-    }
+    { "matchFileNames": ["Dockerfile"], "semanticCommitType": "build" }
   ],
   "customManagers": [
     {
       "description": "Update _VERSION variables in Makefiles",
       "customType": "regex",
-      "fileMatch": ["(^|/)Makefile$"],
+      "managerFilePatterns": ["/(^|/)Makefile$/"],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: (?:packageName)=(?<packageName>.+?))?(?: versioning=(?<versioning>.+?))?(?: extractVersion=(?<extractVersion>.+?))?\\s[A-Z_]+?_VERSION .?= (?<currentValue>.+?)\\s"
       ]
@@ -129,7 +126,7 @@
     {
       "description": "Update _VERSION variables in shell scripts",
       "customType": "regex",
-      "fileMatch": ["\\.sh$"],
+      "managerFilePatterns": ["/\\.sh$/"],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: (?:packageName)=(?<packageName>.+?))?(?: versioning=(?<versioning>.+?))?(?: extractVersion=(?<extractVersion>.+?))?\\s[A-Z_]+?_VERSION=('|\")?(?<currentValue>.+?)('|\")?\\s"
       ]
@@ -137,7 +134,7 @@
     {
       "description": "Update Golang in .go-version file",
       "customType": "regex",
-      "fileMatch": ["(^|/)\\.go-version$"],
+      "managerFilePatterns": ["/(^|/)\\.go-version$/"],
       "matchStrings": ["^\\s*(?<currentValue>.+?)\\s*$"],
       "depNameTemplate": "golang",
       "datasourceTemplate": "golang-version"
@@ -145,7 +142,7 @@
     {
       "description": "Update Rust stable version in rust-toolchain.toml",
       "customType": "regex",
-      "fileMatch": ["(^|/)rust-toolchain\\.toml$"],
+      "managerFilePatterns": ["/(^|/)rust-toolchain\\.toml$/"],
       "matchStrings": ["channel\\s*=\\s*('|\")(?<currentValue>.+?)('|\")\\s"],
       "depNameTemplate": "rust",
       "packageNameTemplate": "rust-lang/rust",
